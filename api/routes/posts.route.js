@@ -58,6 +58,16 @@ router.get("/:postId", async (req, res) => {
     }
 });
 
+//get all posts in feed 
+router.get("/",async (req,res) => {
+    try{
+        const post = await Post.find({});
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // like-dislike a post
 router.put("/:postId/like", async (req, res) => {
     try{
@@ -72,8 +82,8 @@ router.put("/:postId/like", async (req, res) => {
     }catch(err){
         res.status(500).json(err);
     }
-})
+});
 
-//get posts in feed 
+
 
 module.exports = router;

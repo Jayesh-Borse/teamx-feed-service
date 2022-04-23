@@ -28,11 +28,11 @@ mongoose.connect(
 );
   
 app.use(express.json());
-app.use(helmet);
+app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api/posts", postRoute);
 
-app.listen(8800, () => {
+app.listen(8083, () => {
     console.log("Feed Service Backend server is running!");
 });
